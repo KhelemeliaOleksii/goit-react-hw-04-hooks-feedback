@@ -16,6 +16,13 @@ class FeedBack extends Component {
     countTotalFeedback() {
         return Object.values(this.state).reduce((total, item) => total + item, 0);
     }
+    countPositiveFeedbackPercentage() {
+        const total = this.countTotalFeedback();
+        if (total <= 0) {
+            return 0;
+        }
+        return this.state.good / total * 100;
+    }
     render() {
         const entries = Object.entries(this.state);
         return (
@@ -35,16 +42,26 @@ class FeedBack extends Component {
                     ))}
                 </div>
                 <div className="Statistics">
-                    <h3 className="Statistic--title">Statistics</h3>
-                    {entries.map(([key, value]) => (
-                        <p
-                            key={key}
-                            className="label"
-                        >
-                            <span>{key} : </span>
-                            <span>{value}</span>
-                        </p>
-                    ))}
+                    <div className="GeneralStatistic">
+                        <h3 className="Statistic--title">Statistics</h3>
+                        {entries.map(([key, value]) => (
+                            <p
+                                key={key}
+                                className="label"
+                            >
+                                <span>{key} : </span>
+                                <span>{value}</span>
+                            </p>
+                        ))}
+                    </div>
+                    <div className="StatisticTotal">
+                        <span>Total : </span>
+                        <span>{this.countTotalFeedback()}</span>
+                    </div>
+                    <div className="StatisticPosotiveRelative">
+                        <span>Positive feedback : </span>
+                        <span>{this.countPositiveFeedbackPercentage()}%</span>
+                    </div>
                 </div>
             </div>
         )
