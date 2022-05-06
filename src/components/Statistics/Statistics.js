@@ -1,5 +1,5 @@
 import { Component } from 'react'
-
+import s from './Statistics.module.css'
 class Statistics extends Component {
     static defaulProps = {
         good: 0,
@@ -14,18 +14,15 @@ class Statistics extends Component {
         const entries = Object.entries(this.props);
         return (
 
-            <div className="Statistics">
-                <div className="GeneralStatistic">
-                    {entries.map(([key, value]) => (
-                        <p
-                            key={key}
-                            className="label"
-                        >
-                            <span>{key} : </span>
-                            <span>{value}{(key === "positivePercentage") && '%'}</span>
-                        </p>
-                    ))}
-                </div>
+            <div className={s.Statistics}>
+                {entries.map(([key, value]) => (
+                    <p
+                        key={key}
+                    >
+                        <span>{((key === "positivePercentage") ? "Positive feedback" : key)} : </span>
+                        <span>{Math.round(value)}{(key === "positivePercentage") && '%'}</span>
+                    </p>
+                ))}
             </div>
 
         )

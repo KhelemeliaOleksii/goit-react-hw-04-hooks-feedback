@@ -1,0 +1,22 @@
+.Options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Button{
+    border: none;
+    transition: box-shadow 1s easy;
+    height:50%;
+    width:auto;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.Button:not(:last-of-type){
+    margin-right: 20px;
+}
+.Button:hover, Button:focus {
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
+}
+
