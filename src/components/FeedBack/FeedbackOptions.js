@@ -1,5 +1,6 @@
 import { Component } from "react";
 import s from './FeedbackOptions.module.css'
+import PropTypes from 'prop-types'
 class FeedbackOptions extends Component {
     render() {
         const { options, onLeaveFeedback } = this.props;
@@ -21,5 +22,14 @@ class FeedbackOptions extends Component {
         )
     }
 };
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.shape({
+        good: PropTypes.number,
+        neutral: PropTypes.number,
+        bad: PropTypes.number,
+    }),
+    onLeaveFeedback: PropTypes.func,
+}
 
 export default FeedbackOptions;

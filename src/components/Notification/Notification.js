@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Notification extends Component {
     render() {
@@ -9,6 +10,10 @@ class Notification extends Component {
             </div>
         )
     }
+}
+
+Notification.propTypes = {
+    message: PropTypes.string,
 }
 
 export default Notification;

@@ -11,11 +11,7 @@ export class App extends Component {
     bad: 0,
   }
   handlerOnClick = (key) => {
-    this.setState((prevState) => {
-      return {
-        [key]: prevState[key] + 1
-      };
-    });
+    this.setState((prevState) => ({ [key]: prevState[key] + 1 }));
 
   }
   countTotalFeedback() {
