@@ -25,11 +25,11 @@ class FeedbackOptions extends Component {
 
 FeedbackOptions.propTypes = {
     options: PropTypes.shape({
-        good: PropTypes.number,
-        neutral: PropTypes.number,
-        bad: PropTypes.number,
+        good: PropTypes.number.isRequired,
+        neutral: PropTypes.number.isRequired,
+        bad: PropTypes.number.isRequired,
     }),
-    onLeaveFeedback: PropTypes.func,
+    onLeaveFeedback: PropTypes.func.isRequired,
 }
 
 export default FeedbackOptions;
