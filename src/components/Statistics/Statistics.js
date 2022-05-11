@@ -12,22 +12,30 @@ class Statistics extends Component {
     }
 
     render() {
-        // const { good, neutral, bad, total, positivePercentage } = this.props;
-        const entries = Object.entries(this.props);
+        const { good, neutral, bad, total, positivePercentage } = this.props;
         return (
-
             <div className={s.Statistics}>
-                {entries.map(([key, value]) => (
-                    <p
-                        key={key}
-                    >
-                        <span>{((key === "positivePercentage") ? "Positive feedback" : key)} : </span>
-                        <span>{Math.round(value)}{(key === "positivePercentage") && '%'}</span>
-                    </p>
-                ))}
+                <p>Good: {good}</p>
+                <p>Neutral: {neutral}</p>
+                <p>Bad: {bad}</p>
+                <p>Total: {total}</p>
+                <p>Positive feedback: {Math.round(positivePercentage)} %</p>
             </div>
 
         )
+        // const entries = Object.entries(this.props);
+        // return (
+        //     <div className={s.Statistics}>
+        //         {entries.map(([key, value]) => (
+        //             <p
+        //                 key={key}
+        //             >
+        //                 <span>{((key === "positivePercentage") ? "Positive feedback" : key)} : </span>
+        //                 <span>{Math.round(value)}{(key === "positivePercentage") && '%'}</span>
+        //             </p>
+        //         ))}
+        //     </div>
+        // )
     }
 };
 Statistics.propTypes = {
