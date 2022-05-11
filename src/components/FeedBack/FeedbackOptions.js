@@ -3,8 +3,7 @@ import s from './FeedbackOptions.module.css'
 import PropTypes from 'prop-types'
 class FeedbackOptions extends Component {
     render() {
-        const { options, onLeaveFeedback } = this.props;
-        const keys = Object.keys(options);
+        const { keys, onLeaveFeedback } = this.props;
         return (
             <div className={s.Options}>
                 {keys.map((item) => (
@@ -24,11 +23,7 @@ class FeedbackOptions extends Component {
 };
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.shape({
-        good: PropTypes.number.isRequired,
-        neutral: PropTypes.number.isRequired,
-        bad: PropTypes.number.isRequired,
-    }),
+    keys: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired,
 }
 
