@@ -42,6 +42,7 @@ export const App = () => {
       <Section title="Please leave feedback">
         <FeedbackOptions keys={["good", "neutral", "bad"]} onLeaveFeedback={handlerOnClick} />
       </Section>
+
       <Section title="Statistics">
         {countTotalFeedback() ?
           <Statistics
